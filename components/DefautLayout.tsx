@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from 'next/head';
 import { Avatar, Button, ConfigProvider, Drawer, Layout, Menu, MenuProps } from "antd";
-import { faBars, faSignOut, faSignIn, faUser, faHome, faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faSignOut, faSignIn, faUser, faHome, faCartPlus, faBook } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -41,12 +41,11 @@ const DefaultLayout: React.FC<{
             onClick: () => router.push('/add-to-cart')
         });
         menu.push({
-            key: '/cart',
-            label: 'Add to Cart',
-            icon: <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon>,
-            onClick: () => router.push('/Carts')
+            key: '/order-summary',
+            label: 'Order Summary',
+            icon: <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>,
+            onClick: () => router.push('/order-summary')
         });
-
         if (status === 'authenticated') {
             menu.push({
                 key: '/sign-out',
